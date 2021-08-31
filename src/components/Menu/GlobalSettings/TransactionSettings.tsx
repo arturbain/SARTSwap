@@ -96,7 +96,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(10)
             }}
-            variant={userSlippageTolerance === 10 ? 'primary' : 'tertiary'}
+            variant={userSlippageTolerance === 10 ? 'success' : 'tertiary'}
           >
             0.1%
           </Button>
@@ -110,7 +110,7 @@ const SlippageTabs = () => {
                 setSlippageInput('')
                 setUserSlippageTolerance(1200)
               }}
-              variant={userSlippageTolerance === 1200 ? 'primary' : 'tertiary'}
+              variant={userSlippageTolerance === 1200 ? 'success' : 'tertiary'}
           >
             0.2%
           </Button>
@@ -122,7 +122,7 @@ const SlippageTabs = () => {
                 setSlippageInput('')
                 setUserSlippageTolerance(1500)
               }}
-              variant={userSlippageTolerance === 1500 ? 'primary' : 'tertiary'}
+              variant={userSlippageTolerance === 1500 ? 'success' : 'tertiary'}
           >
             0.3%
           </Button>
@@ -134,7 +134,7 @@ const SlippageTabs = () => {
                 setSlippageInput('')
                 setUserSlippageTolerance(2000)
               }}
-              variant={userSlippageTolerance === 2000 ? 'primary' : 'tertiary'}
+              variant={userSlippageTolerance === 2000 ? 'danger' : 'tertiary'}
           >
             0.4%
           </Button>
@@ -147,7 +147,7 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(50)
             }}
-            variant={userSlippageTolerance === 50 ? 'primary' : 'tertiary'}
+            variant={userSlippageTolerance === 50 ? 'danger' : 'tertiary'}
           >
             0.5%
           </Button>
@@ -159,40 +159,18 @@ const SlippageTabs = () => {
               setSlippageInput('')
               setUserSlippageTolerance(2500)
             }}
-            variant={userSlippageTolerance === 2500 ? 'primary' : 'tertiary'}
+            variant={userSlippageTolerance === 2500 ? 'danger' : 'tertiary'}
           >
             1.0%
           </Button>
-          <Flex alignItems="center">
-            <Box width="76px" mt="4px">
-              <Input
-                scale="sm"
-                placeholder={(
-                    (userSlippageTolerance === 1200) ? 0.2 :
-                    (userSlippageTolerance === 1500) ? 0.3 :
-                    (userSlippageTolerance === 2000) ? 0.4 :
-                    (userSlippageTolerance === 2500) ? 1 :
-                    userSlippageTolerance / 100).toFixed(2)}
-                value={slippageInput}
-                onBlur={() => {
-                  parseCustomSlippage((userSlippageTolerance / 100).toFixed(2))
-                }}
-                onChange={(e) => parseCustomSlippage(e.target.value)}
-                isWarning={!slippageInputIsValid}
-                isSuccess={![10, 50, 100].includes(userSlippageTolerance)}
-              />
-            </Box>
-            <Text color="primary" bold ml="2px">
-              %
-            </Text>
-          </Flex>
+
         </Flex>
         {!!slippageError && (
           <Text fontSize="14px" color={slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E'} mt="8px">
             {slippageError === SlippageError.InvalidInput
               ? t('Enter a valid slippage percentage')
               : slippageError === SlippageError.RiskyLow
-              ? t('Your transaction may fail')
+              ? t('')
               : t('Your transaction may be frontrun')}
           </Text>
         )}

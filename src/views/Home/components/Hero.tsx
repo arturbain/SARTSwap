@@ -75,7 +75,7 @@ const StarsWrapper = styled.div`
 `
 
 const imagePath = '/images/home/lunar-bunny/'
-const imageSrc = 'favicon'
+const imageSrc = 'streetArt'
 
 const starsImage: CompositeImageProps = {
   path: '/images/home/lunar-bunny/',
@@ -112,7 +112,7 @@ const Hero = () => {
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
             <Link mr="16px" href="/swap?outputCurrency=0x432ef8b023aaba3c42ca540d32351c5b1a869cf7">
-              <Button variant={!account ? 'secondary' : 'primary'}>{t('Trade Now SART')}</Button>
+              <Button variant={!account ? 'success' : 'success'}>{t('Trade Now SART')}</Button>
             </Link>
           </Flex>
         </Flex>
